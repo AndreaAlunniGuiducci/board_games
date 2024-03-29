@@ -34,7 +34,7 @@ const GamesList = ({ className }: any) => {
 
   useEffect(() => {
     getGamesList();
-  }, [getGames]);
+  }, []);
 
   useEffect(() => {
     setGamesList([]);
