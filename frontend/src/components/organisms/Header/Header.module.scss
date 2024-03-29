@@ -1,0 +1,17 @@
+.header {
+  z-index: 9;
+  position: fixed;
+  padding: 40px;
+  width: 100vw;
+  height: 10vh;
+  //   max-height: 100px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background-color: #69b00b;
+  .btnWrapper {
+    display: flex;
+    gap: 12px;
+  }
+}

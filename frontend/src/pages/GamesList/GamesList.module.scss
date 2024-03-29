@@ -1,0 +1,26 @@
+.gamesList {
+  display: flex;
+  flex-direction: column;
+  .inputWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .searchBar {
+    height: fit-content;
+  }
+  .loadingModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cardsWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    [class*="gameCard"] {
+      width: 30%;
+    }
+  }
+}

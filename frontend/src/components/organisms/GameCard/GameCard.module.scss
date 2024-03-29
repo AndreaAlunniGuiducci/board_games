@@ -1,0 +1,43 @@
+.gameCard,
+.soloCard {
+  .image {
+    width: 100%;
+  }
+  .infoDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+    .categories{
+      display: flex;
+      gap: 4px;
+    }
+    .infoWrapper {
+      text-align: start;
+    }
+  }
+}
+
+.gameCard {
+  border: 1px solid;
+  border-radius: 16px;
+  //   width: 350px;
+  background-color: beige;
+  padding: 10px;
+}
+
+.soloCard {
+  display: flex;
+  gap: 16px;
+  .infoDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .name {
+      font-size: 42px;
+    }
+    .descriprion {
+      text-align: start;
+    }
+  }
+}
