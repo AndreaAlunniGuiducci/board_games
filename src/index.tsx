@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-  <BrowserRouter basename="gh-pages">
+  <BrowserRouter basename="main">
     <App />
   </BrowserRouter>
   // </React.StrictMode>
