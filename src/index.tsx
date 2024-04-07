@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-  <BrowserRouter basename="board_games">
+  <BrowserRouter basename="/board_games">
     <App />
   </BrowserRouter>
   // </React.StrictMode>
