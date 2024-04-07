@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/board_games/static/css/main.a87bc1a9.css",
-    "main.js": "/board_games/static/js/main.28d17e92.js",
+    "main.js": "/board_games/static/js/main.b862f4fd.js",
     "static/js/453.92f7397a.chunk.js": "/board_games/static/js/453.92f7397a.chunk.js",
     "static/media/cranium_image.jpg": "/board_games/static/media/cranium_image.6aebcff1882a549283a7.jpg",
     "index.html": "/board_games/index.html",
     "main.a87bc1a9.css.map": "/board_games/static/css/main.a87bc1a9.css.map",
-    "main.28d17e92.js.map": "/board_games/static/js/main.28d17e92.js.map",
+    "main.b862f4fd.js.map": "/board_games/static/js/main.b862f4fd.js.map",
     "453.92f7397a.chunk.js.map": "/board_games/static/js/453.92f7397a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a87bc1a9.css",
-    "static/js/main.28d17e92.js"
+    "static/js/main.b862f4fd.js"
   ]
 }
