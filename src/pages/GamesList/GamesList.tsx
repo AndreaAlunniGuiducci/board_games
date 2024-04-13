@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import GameCard from "../../components/organisms/GameCard/GameCard";
-import styles from "./GamesList.module.scss";
-import Accordion from "../../components/organisms/Accordion/Accordion";
-import { Filter } from "react-bootstrap-icons";
-import Input from "../../components/atoms/Input/Input";
 import { useEffect, useState } from "react";
-import { getFilteredGames, getGames } from "../../services";
-import Modal from "../../components/atoms/Modal/Modal";
 import { Spinner } from "react-bootstrap";
+import { Filter } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
+import Input from "../../components/atoms/Input/Input";
+import Modal from "../../components/atoms/Modal/Modal";
+import Accordion from "../../components/organisms/Accordion/Accordion";
+import GameCard from "../../components/organisms/GameCard/GameCard";
+import { getFilteredGames, getGames } from "../../services";
+import styles from "./GamesList.module.scss";
 
 interface GameFilter {
   name: string | undefined;
@@ -25,11 +25,19 @@ const GamesList = ({ className }: any) => {
     gameTime: undefined,
     numberPlayer: undefined,
   });
-  const [gamesList, setGamesList] = useState<any>([]);
+  const [gamesList, setGamesList] = useState<any[]>([]);
+  const [gamesListLoading, setGamesListLoading] = useState<boolean>(false);
 
   const getGamesList = async () => {
-    const response = await getGames();
-    setGamesList(response.data);
+    setGamesListLoading(true);
+    getGames()
+      .then((response) => {
+        setGamesListLoading(false);
+        setGamesList(response.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   useEffect(() => {
@@ -39,8 +47,15 @@ const GamesList = ({ className }: any) => {
   useEffect(() => {
     setGamesList([]);
     const filterTheGame = async () => {
-      const filteredGames = await getFilteredGames(gameFilter);
-      setGamesList(filteredGames.data);
+      setGamesListLoading(true);
+      getFilteredGames(gameFilter)
+        .then((response) => {
+          setGamesListLoading(false);
+          setGamesList(response.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     };
     filterTheGame();
   }, [gameFilter]);
@@ -109,7 +124,7 @@ const GamesList = ({ className }: any) => {
           ]}
         />
       </div>
-      {gamesList.length < 1 ? (
+      {gamesListLoading ? (
         <Modal className={styles.loadingModal}>
           <Spinner />
         </Modal>

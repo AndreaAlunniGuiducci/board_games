@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/board_games" }
+  { basename: "/" }
 );
 
 function App() {

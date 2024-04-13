@@ -45,7 +45,8 @@ const GameCard = ({
             da {playerAge} anni
           </div>
           <div className={styles.playerNumber}>
-            <PeopleFill /> {minPlayer} - {maxPlayer} giocatori
+            <PeopleFill /> {minPlayer}
+            {maxPlayer === 99 ? "+" : " - " + maxPlayer} giocatori
           </div>
           <div className={styles.playTime}>
             <HourglassSplit /> {playTime} min
