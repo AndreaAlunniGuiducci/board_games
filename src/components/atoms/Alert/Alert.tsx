@@ -9,7 +9,7 @@ interface AlertProps extends BootstrapAlertProps {
   className?: string;
 }
 
-export const Aalert = ({ children, className, ...props }: AlertProps) => {
+export const Alert = ({ children, className, ...props }: AlertProps) => {
   return (
     <BootstrapAlert className={`${styles.alert} ${className}`} {...props}>
       {children}
