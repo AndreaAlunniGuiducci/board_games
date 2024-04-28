@@ -8,6 +8,9 @@ import Accordion from "../../components/organisms/Accordion/Accordion";
 import GameCard from "../../components/organisms/GameCard/GameCard";
 import { getFilteredGames, getGames } from "../../services";
 import styles from "./GamesList.module.scss";
+import { Alert } from "../../components/atoms/Alert/Alert";
+import { useAppDispatch } from "../../store/storeHooks";
+import { addError } from "../../store/slices/errorSlice";
 
 interface GameFilter {
   name: string | undefined;
@@ -17,6 +20,7 @@ interface GameFilter {
 }
 
 const GamesList = ({ className }: any) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [gameFilter, setGameFilter] = useState<GameFilter>({
@@ -36,6 +40,10 @@ const GamesList = ({ className }: any) => {
         setGamesList(response.data);
       })
       .catch((err) => {
+        setGamesListLoading(false);
+        dispatch(
+          addError({ error: { errorMessage: err.message, errorTitle: "" } })
+        );
         console.error(err);
       });
   };

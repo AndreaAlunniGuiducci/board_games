@@ -8,4 +8,10 @@
     height: 90vh;
     transform: translateY(10vh);
   }
+  .errorsWrapper {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    z-index: 99;
+  }
 }

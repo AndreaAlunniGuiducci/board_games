@@ -5,6 +5,10 @@ import Header from "./components/organisms/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import GamesList from "./pages/GamesList/GamesList";
 import GameDescription from "./pages/GameDescription/GameDescription";
+import { useAppDispatch, useAppSelector } from "./store/storeHooks";
+import { Alert } from "./components/atoms/Alert/Alert";
+import { useEffect } from "react";
+import { delError } from "./store/slices/errorSlice";
 
 const router = createBrowserRouter(
   [
@@ -32,8 +36,27 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const dispatch = useAppDispatch();
+  const error = useAppSelector((store) => store.error);
+  const { errors, showError } = error;
+  console.log("errors", errors);
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(delError());
+    }, 2000);
+  }, [error]);
+
   return (
     <div className="App">
+      {showError && (
+        <div className="errorsWrapper">
+          {errors.map((i, index) => (
+            <Alert key={index} variant="danger">
+              {i.errorMessage}
+            </Alert>
+          ))}
+        </div>
+      )}
       <RouterProvider router={router} />
     </div>
   );
