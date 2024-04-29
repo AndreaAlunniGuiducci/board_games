@@ -39,11 +39,12 @@ function App() {
   const dispatch = useAppDispatch();
   const error = useAppSelector((store) => store.error);
   const { errors, showError } = error;
-  console.log("errors", errors);
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(delError());
-    }, 2000);
+    if (showError) {
+      setTimeout(() => {
+        dispatch(delError());
+      }, 2000);
+    }
   }, [error]);
 
   return (

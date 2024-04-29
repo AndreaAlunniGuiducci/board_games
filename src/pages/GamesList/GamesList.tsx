@@ -11,6 +11,7 @@ import styles from "./GamesList.module.scss";
 import { Alert } from "../../components/atoms/Alert/Alert";
 import { useAppDispatch } from "../../store/storeHooks";
 import { addError } from "../../store/slices/errorSlice";
+import { EmptyState } from "../../components/organisms/EmptyState/EmptyState";
 
 interface GameFilter {
   name: string | undefined;
@@ -138,20 +139,24 @@ const GamesList = ({ className }: any) => {
         </Modal>
       ) : (
         <div className={styles.cardsWrapper}>
-          {gamesList.map((g: any) => (
-            <GameCard
-              key={g.id}
-              onClick={() => navigate("/gioco/" + g.id)}
-              categories={g.categories}
-              description={g.description}
-              image={g.image}
-              maxPlayer={g.maxPlayer}
-              minPlayer={g.minPlayer}
-              name={g.name}
-              playTime={g.playTime}
-              playerAge={g.playerAge}
-            />
-          ))}
+          {gamesList.length > 0 ? (
+            gamesList.map((g: any) => (
+              <GameCard
+                key={g.id}
+                onClick={() => navigate("/gioco/" + g.id)}
+                categories={g.categories}
+                description={g.description}
+                image={g.image}
+                maxPlayer={g.maxPlayer}
+                minPlayer={g.minPlayer}
+                name={g.name}
+                playTime={g.playTime}
+                playerAge={g.playerAge}
+              />
+            ))
+          ) : (
+            <EmptyState />
+          )}
         </div>
       )}
     </div>

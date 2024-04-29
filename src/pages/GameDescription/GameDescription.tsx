@@ -4,6 +4,7 @@ import GameCard from "../../components/organisms/GameCard/GameCard";
 import { Game } from "../../types/game.types";
 import games from "../../utils/games_list/games_list";
 import styles from "./GameDescription.module.scss";
+import { EmptyState } from "../../components/organisms/EmptyState/EmptyState";
 
 const GameDescription = ({ className }: any) => {
   const params = useParams();
@@ -17,7 +18,7 @@ const GameDescription = ({ className }: any) => {
 
   return (
     <div className={styles.gameDescription + " " + className}>
-      {game && <GameCard {...game} soloCard />}
+      {game ? <GameCard {...game} soloCard /> : <EmptyState />}
     </div>
   );
 };
